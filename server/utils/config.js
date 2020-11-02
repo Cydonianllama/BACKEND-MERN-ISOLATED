@@ -1,6 +1,7 @@
 const config = {
     PORT : 3000,
-    pathStatic : '../client/public'
+    pathStatic : '../client/public',
+    dataAlumnosIsHere : false
 }
 
 module.exports = {config}

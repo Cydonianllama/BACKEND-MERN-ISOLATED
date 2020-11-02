@@ -33,6 +33,14 @@ app.post('/',(req,res)=>{
     },404);
 })
 
+app.get('*', (req, res) => {
+    response.error(req,res,{
+        isWork : 'yes',
+        permission : 'denied',
+        desciprtion : 'page not found'
+    },404);
+})
+
 app.listen(config.PORT,()=>{
     console.log('conexion exitosa');
 });

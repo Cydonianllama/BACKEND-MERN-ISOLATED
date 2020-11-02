@@ -1,0 +1,6 @@
+function getAllAlumnos(){
+    
+}
+function getAlumno(){
+
+}
