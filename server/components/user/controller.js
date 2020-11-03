@@ -1,13 +1,25 @@
 const store = require('./store');
 
-function processRequestLoggin(dataUser){
-    if (store.logginToSystem(dataUser)){
-        console.log('you in');
-        return true;
-    }else{
-        console.log('incorrect login');
-        return false
+async function processRequestLoggin(dataUser){
+
+    var dataLogin = await store.dataLogin();
+
+    function verifyData(_dataUser,dataDB) {
+        try {
+            var iscorrect = false;
+            isCorrect = dataDB.forEach(data => {
+                if (data.username === _dataUser.username && data.password === _dataUser.password) {
+                    iscorrect = true;
+                }
+            });
+            return iscorrect;
+        } catch (error) {
+            console.log(error);
+        }
     }
+    
+    let Acert = await verifyData(dataUser,dataLogin);
+    return Acert;
 }
 
-module.exports = {processRequestLoggin}
+module.exports =  {processRequestLoggin};

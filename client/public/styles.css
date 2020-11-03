@@ -15,11 +15,7 @@ p,h1,h2,h3,a,button{
     --height-footer   : 10vh;
     --height-hero     : 10vh; 
 }
-iframe{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
+
 #root{
     background-color: white;
 }
@@ -40,7 +36,7 @@ iframe{
     justify-content: center;
     align-items: center;
     width: 25%;
-    height: 100vh;
+    height: 10vh;
     background-color: #acf3f3;
 }
 .nav-main ul li{
@@ -51,7 +47,7 @@ iframe{
     align-items: center;
     justify-content: flex-end;
     width: 75%;
-    height: 100vh;
+    height: 10vh;
 }
 .nav-main ul li a{
     margin-left: 15px;
@@ -63,7 +59,7 @@ iframe{
 /*iframe hero*/
 .hero{
     background-color: var(--bgSchool);
-    height: 100vh;
+    height: 25vh;
 }
 /*iframe footer*/
 

@@ -6,6 +6,7 @@ const routes     = require('./network/routes');
 const response   = require('./network/response');
 const path = require('path');
 
+
 //middleware 
 app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded());
@@ -15,11 +16,6 @@ app.use(express.static(path.resolve('client') + '/public'));
 routes(app);
 
 app.get('/',(req,res)=>{
-    
-    // response.success(req,res,{
-    //     isWork : 'yes',
-    //     description : 'is success work'
-    // },200);
     
     res.sendFile(path.resolve('client') + '/public/index.html');
     
@@ -39,9 +35,9 @@ app.get('*', (req, res) => {
         permission : 'denied',
         desciprtion : 'page not found'
     },404);
-})
+});
 
 app.listen(config.PORT,()=>{
-    console.log('conexion exitosa');
+    console.log('servidor exitoso');
 });
 

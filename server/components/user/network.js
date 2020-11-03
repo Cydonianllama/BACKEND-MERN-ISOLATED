@@ -2,6 +2,7 @@
 const express    = require('express');
 const router     = express.Router();
 const controller = require('./controller');
+const response   = require('../../network/response');
 
 router.get('/', (req, res) => {
     console.log('estoy en login')
@@ -17,13 +18,22 @@ router.post('/',(req,res)=>{
 });
 
 router.post('/:username&:password',async (req,res)=>{
-
-    let isLogged = await controller.processRequestLoggin(req.params);
-    res.json({
-        processData  : 'yes',
-        prueba       : 'si ves esto es exitoso'   ,
-        esLogged     : islogged
-    });
+    
+    try {
+        let isLogged = await controller.processRequestLoggin(req.params);
+        response.success(req, res, {
+            error    : 'no',
+            isconnect: isLogged,
+        }, 200);
+        
+    } catch (error) {
+        response.error(req,res,{
+            error : 'yes',
+            isConnect : 'no'
+        },404);
+    }
+    
+    res.end();
 
 });
 

@@ -4,7 +4,7 @@ const Commons = require('../components/commons/network');
 
 const router = function (server) {
     server.use('/Login', User);
-    server.use('/Dashboard/Direccion', Directora);
+    server.use('/Direccion', Directora);
     server.use('/Common',Commons);
 }
 

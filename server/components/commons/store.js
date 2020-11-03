@@ -1,12 +1,14 @@
 var dataAlumnos      = require('./model').alumnos;
 var dataAsistencia   = require('./model').asistencia; 
 
-function AllAlumnos(){
-    
+async function AllAlumnos(dataDB){
+    let data = await dataAlumnos;
+    return data;
 }
 
-function Alumno(dataIn){
-
+async function Alumno(dataDB){
+    let data = await dataAsistencia;
+    return data;
 }
 
 module.exports = {AllAlumnos,Alumno};
