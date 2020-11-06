@@ -6,28 +6,29 @@ const routes     = require('./network/routes');
 const response   = require('./network/response');
 const path = require('path');
 
-
 //middleware 
 app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded());
 app.use(express.static(path.resolve('client') + '/public'));
 
-//my routes
-routes(app);
+//ROUTES
 
-app.get('/',(req,res)=>{
-    
-    res.sendFile(path.resolve('client') + '/public/index.html');
-    
+app.get('/', (req, res) => {
+
+    res.redirect('/Login');
+
 });
 
-app.post('/',(req,res)=>{
-    response.error(req,res,{
-        isWork : 'yes',
-        permission : 'denied',
-        description :'lucho sabe ingles'
-    },404);
+app.post('/', (req, res) => {
+    response.error(req, res, {
+        isWork: 'yes',
+        permission: 'denied',
+        description: 'lucho sabe ingles'
+    }, 404);
 })
+
+//my routes
+routes(app);
 
 app.get('*', (req, res) => {
     response.error(req,res,{

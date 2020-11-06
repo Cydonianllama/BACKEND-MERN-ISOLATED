@@ -9,26 +9,22 @@ p,h1,h2,h3,a,button{
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 :root{
     --bgDark   : #161616;
-    --bgSchool : #c6ffff;
-
+    --bgSchool : #324376;
+    --bgSchool2 : #586BA4;
+    --color-alt1 : #F5DD90;
+    
     --height-nav-main : 10vh;
     --height-footer   : 10vh;
     --height-hero     : 10vh; 
 }
-
-#root{
-    background-color: white;
-}
-
-
-
-/*iframe nav*/
 .nav-main{
+    position:sticky;
+    top:0px;
     display: flex;
     padding-right: 15px;
-    position: relative;
     height:auto;
     background-color: var(--bgSchool);
+    z-index: 100;
 }
 .nav-main .logo{
     color:black;
@@ -37,7 +33,6 @@ p,h1,h2,h3,a,button{
     align-items: center;
     width: 25%;
     height: 10vh;
-    background-color: #acf3f3;
 }
 .nav-main ul li{
     list-style: none;
@@ -52,14 +47,25 @@ p,h1,h2,h3,a,button{
 .nav-main ul li a{
     margin-left: 15px;
     text-decoration: none;
-    padding : 10px 35px;
-    background-color: #acf3f3;
+    padding : 10px 40px;
+    border-radius: 8px;
+    background-color: var(--color-alt1);
     color:black;
 }
-/*iframe hero*/
 .hero{
-    background-color: var(--bgSchool);
-    height: 25vh;
+    position: relative;
+    height: 35vh;
+    background-color: white;
 }
-/*iframe footer*/
-
+.container{
+    position: relative;
+    width: 100%;
+    height: 1500px;
+    background-color: var(--bgSchool2);
+}
+footer{
+    position: relative;
+    width  : 100%;
+    height : 30vh;
+    background-color: var(--color-alt1) ;
+}

@@ -3,12 +3,10 @@ const express    = require('express');
 const router     = express.Router();
 const controller = require('./controller');
 const response   = require('../../network/response');
+const path       = require('path');
 
 router.get('/', (req, res) => {
-    console.log('estoy en login')
-    res.send({
-        gui : 'yes'
-    })
+    res.sendFile(path.resolve('client') + '/public/pages/Login.html');
 });
 
 router.post('/',(req,res)=>{
