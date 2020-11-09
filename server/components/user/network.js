@@ -4,16 +4,17 @@ const router     = express.Router();
 const controller = require('./controller');
 const response   = require('../../network/response');
 const path       = require('path');
+const routeAuth       = require('../../../utils/authentication').passportAuth;
 
-router.get('/', (req, res) => {
-    res.sendFile(path.resolve('client') + '/public/pages/Login.html');
+router.get('/',(req, res) => {
+    //res.sendFile(path.resolve('client') + '/public/pages/Login.html');
+    if(req.isAuthenticated()){
+        res.redirect('/Home');
+    }else{
+        res.render('login');
+    }
 });
-
-router.post('/',(req,res)=>{
-    res.send({
-        information : 'protected'
-    });
-});
+router.post('/',routeAuth('/Home','/Login')); // usando la autenticacion
 
 router.post('/:username&:password',async (req,res)=>{
     

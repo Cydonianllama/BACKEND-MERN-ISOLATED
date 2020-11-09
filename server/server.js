@@ -1,17 +1,25 @@
 const express    = require('express');
 const app        = express();
 const bodyParser = require('body-parser');
-const config     = require('./utils/config').config;
+const path = require('path');
+
+const auth       = require('../utils/authentication');
+const config     = require('../utils/config').config;
 const routes     = require('./network/routes');
 const response   = require('./network/response');
-const path = require('path');
+
+//configurations
+app.set('view engine', 'ejs');
+//app.use(express.static(path.resolve('client') + '/public')); // para archivos estaticos (solo lo use para pruebas)
 
 //middleware 
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded());
-app.use(express.static(path.resolve('client') + '/public'));
+app.use(express.urlencoded({extended : true}));//leer los datos enviados por un formulario
+auth.sessionMiddlewares(app);//metodo local para la autenticacion de los usuarios
 
-//ROUTES
+//routes
+
+routes(app);
 
 app.get('/', (req, res) => {
 
@@ -27,9 +35,7 @@ app.post('/', (req, res) => {
     }, 404);
 })
 
-//my routes
-routes(app);
-
+//404 page 
 app.get('*', (req, res) => {
     response.error(req,res,{
         isWork : 'yes',
