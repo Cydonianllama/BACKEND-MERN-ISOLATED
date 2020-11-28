@@ -1,0 +1,7 @@
+{
+    "C_Cpp.autocomplete": "Disabled",
+    "editor.cursorStyle": "block",
+    "files.exclude": {
+        "**/node_modules": true
+    }
+}

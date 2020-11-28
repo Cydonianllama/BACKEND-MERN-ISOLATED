@@ -6,10 +6,7 @@ const response = require('../../network/response');
 router.get('/',async (req,res)=>{
     try {
         let data = await controller.getDataDirector();
-        response.success(req,res,{
-            status : 'sucess',
-            data : data
-        },200);
+        res.status(200).render('pages/Dashboard')
     } catch (error) {
         console.log(error);
     }

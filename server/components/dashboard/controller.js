@@ -1,4 +1,4 @@
-var store = require('./store');
+var store = require('./store')
 
 async function getDataDirector(){
     try {
