@@ -1,0 +1,195 @@
+banch_(loopback)
+	idBranch
+	nameBranch
+	location
+
+branch_buildings
+	idBuildingBranch
+	idBranch
+
+buildings_Room
+	idBuildingBranch
+	code_room
+	description
+
+personInformation
+	idPerson
+	fullname
+	birthdate
+	documentIdentification
+	codeIdentification
+	typePerson
+	direction
+
+concept_payment(loopback)
+	idConceptPayment
+	nameConcept
+
+state_payment(loopback)
+	idState
+	namestate
+
+method_payment(loopback)
+	idMethod
+	nameMethod
+
+payment_ofStudent
+	idStudent
+	idStatePayment
+	idConceptPayment
+	idMethodPayment
+	payment
+	datePayment
+	description
+
+paymentWorkerInformation
+	idWorker
+	idTypePayment
+	idConceptPayment
+	idStatePayment
+	idMethodPayment
+	payment
+	datePayment
+	desciprition
+
+type_worker(loopback)
+	idTypeWorker
+	mameTypeWorker
+	idBranch
+
+state_worker(loopback)
+	idStateWorker
+	nameState
+
+modality_work
+	idModality
+	nameModality
+
+worker
+	identification
+	idModality
+	idTypeWorker
+	idStateWorker
+	idTypePayment
+	dateInit
+	dateFinish
+
+grades
+	idGrade
+	nameGrade
+
+cicle_career
+	idCicle
+	numbercicle
+
+career
+	idCareer
+	nameCareer
+	description
+
+type_class(loopback)
+	idTypeClass
+	nameClass
+
+class
+	idClass
+	idGradeClass
+	idCareer
+	idTypeClass
+	nameClass
+	description
+	credits
+	hoursxweek
+
+teacher_class
+	idTClass
+	idClass
+	idBranch
+	idTeacher
+
+type_Classroom
+	idTypeClassRoom
+	nameType
+
+classroom
+	idClassroom
+	idBuildingRoom
+	idTypeClassRoom
+	idBranch
+	codeClassroom
+
+class_turns
+	idClassTurn
+	idClassroom
+	idClass
+	idGrade
+	dateturn
+	description
+
+student_state
+	idStudentState
+	nameState
+
+student
+	idStudent
+	idStateStudent
+	idGrade
+	idBranch
+	idCareer
+
+student_classe_states (loopback)
+	idStudentClassesStates
+	nameState
+
+student_schedule
+	idStudentSchedule
+	idStudent
+	idClass
+	idClassroom
+	idTypeClass
+	idTeacher
+	idStudentClasseStates
+
+exam_type(loopback)
+	idExamType
+	nameExamType
+	desccription
+
+notesStudent
+	idNote
+	idStudent
+	idTeacher
+	idBranch
+	idClass
+	idClassturn
+	idTypeExam
+	dateRevision
+	description
+	idExamType
+	note
+
+stateAsistance(loopback)
+	idStateAsistance
+	nameState
+
+asistance_student
+	idAsistanceStudent
+	idStudent
+	dateAssitance
+	idStateAssistance
+
+asistance_teacher
+	idAssitanceTeacher
+	idTeacher
+	dateAssitance
+	idStateAsistance
+
+category_services(loopback)
+	idCategoryService
+
+services
+	idServices
+	idCategoryService
+	nameService
+	descriptionService
+	cost

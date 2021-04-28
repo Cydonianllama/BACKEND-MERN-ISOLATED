@@ -13,7 +13,6 @@ const conection = async  () => {
         .then(() => console.log('conexion exitosa a mongoDB'))
         .catch(err => console.log(err))
 
-    
 }
 
 module.exports = {mongoose , conection}
